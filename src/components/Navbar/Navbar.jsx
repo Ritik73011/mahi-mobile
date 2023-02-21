@@ -18,7 +18,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Home from "../../pages/Home";
 import { Routes, Route, useNavigate } from "react-router";
-const drawerWidth = 240;
+const drawerWidth = 215;
 
 function ResponsiveDrawer(props) {
   const { window } = props;
@@ -27,6 +27,7 @@ function ResponsiveDrawer(props) {
 
   const handleClick = (text) => {
     navigate("/" + text);
+    setMobileOpen(false);
   };
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
