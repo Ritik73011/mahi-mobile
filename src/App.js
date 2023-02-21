@@ -1,9 +1,12 @@
 import './App.css';
-
+import { Routes, Route } from 'react-router'
+import ResponsiveDrawer from './components/Navbar/Navbar';
 function App() {
   return (
     <div className="App">
-     MAHI MOBILE
+      <Routes>
+        <Route path='/' element={ResponsiveDrawer} />
+      </Routes>
     </div>
   );
 }
