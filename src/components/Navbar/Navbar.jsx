@@ -35,7 +35,18 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      <Toolbar />
+      <Toolbar>
+        <Typography
+          className="logo"
+          fontSize={"26px"}
+          fontWeight="600"
+          variant="h5"
+          noWrap
+          component="div"
+        >
+          Mahi Mobile
+        </Typography>
+      </Toolbar>
       <Divider />
       <List>
         {["home", "parties", "items", "sell"].map((text, index) => (
