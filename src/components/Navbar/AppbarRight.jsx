@@ -4,7 +4,6 @@ import { useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const AppbarRight = () => {
   const [login] = useState(false);
-
   return (
     <Box
       sx={{
@@ -14,13 +13,20 @@ const AppbarRight = () => {
         alignItems: "center",
       }}
     >
-      <Typography variant="h6" noWrap component="div">
-        Company name
+      <Typography
+        variant="h6"
+        textTransform={"capitalize"}
+        noWrap
+        component="div"
+      >
+        {window.location.pathname === "/"
+          ? "Home"
+          : window.location.pathname.split("/")}
       </Typography>
       {login ? (
-        <AccountCircleIcon fontSize="large" />
+        <AccountCircleIcon fontSize="large" sx={{ cursor: "pointer" }} />
       ) : (
-        <LoginIcon fontSize="large" />
+        <LoginIcon fontSize="large" sx={{ cursor: "pointer" }} />
       )}
     </Box>
   );
