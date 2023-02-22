@@ -18,7 +18,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Home from "../../pages/Home";
 import { Routes, Route, useNavigate } from "react-router";
-const drawerWidth = 215;
+import AppbarRight from "./AppbarRight";
+const drawerWidth = 220;
 
 function ResponsiveDrawer(props) {
   const { window } = props;
@@ -87,6 +88,8 @@ function ResponsiveDrawer(props) {
       <CssBaseline />
       <AppBar
         position="fixed"
+        elevation={1}
+        color="inherit"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
@@ -102,9 +105,7 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Responsive drawer
-          </Typography>
+          <AppbarRight />
         </Toolbar>
       </AppBar>
       <Box
