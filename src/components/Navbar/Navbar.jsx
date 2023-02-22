@@ -158,6 +158,7 @@ function ResponsiveDrawer(props) {
         {/*ROUTES COMPONENTS*/}
         <Routes>
           <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
         </Routes>
         {/*ROUTES COMPONENTS*/}
       </Box>
