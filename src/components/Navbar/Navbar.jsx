@@ -21,6 +21,7 @@ import { Routes, Route, useNavigate } from "react-router";
 import AppbarRight from "./AppbarRight";
 import Login from "../../pages/Login";
 import Profile from "../../pages/Profile";
+import { boxShadowsObj } from "../../utils/color";
 const drawerWidth = 220;
 
 function ResponsiveDrawer(props) {
@@ -38,7 +39,7 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      <Toolbar>
+      <Toolbar sx={boxShadowsObj}>
         <Typography
           className="logo"
           fontSize={"26px"}
@@ -50,7 +51,6 @@ function ResponsiveDrawer(props) {
           Mahi Mobile
         </Typography>
       </Toolbar>
-      <Divider />
       <List>
         {["home", "parties", "items", "sell"].map((text, index) => (
           <ListItem key={text} disablePadding>
@@ -90,11 +90,12 @@ function ResponsiveDrawer(props) {
       <CssBaseline />
       <AppBar
         position="fixed"
-        elevation={1}
+        elevation={0}
         color="inherit"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          boxShadow: boxShadowsObj.boxShadow,
         }}
       >
         <Toolbar>
