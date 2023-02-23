@@ -19,6 +19,8 @@ import Typography from "@mui/material/Typography";
 import Home from "../../pages/Home";
 import { Routes, Route, useNavigate } from "react-router";
 import AppbarRight from "./AppbarRight";
+import Login from "../../pages/Login";
+import Profile from "../../pages/Profile";
 const drawerWidth = 220;
 
 function ResponsiveDrawer(props) {
@@ -159,6 +161,8 @@ function ResponsiveDrawer(props) {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         {/*ROUTES COMPONENTS*/}
       </Box>
