@@ -23,6 +23,7 @@ import Login from "../../pages/Login";
 import Profile from "../../pages/Profile";
 import { boxShadowsObj } from "../../utils/color";
 import Signup from "../../pages/Signup";
+import PrivateRoute from "../../privateRouting/privateRoute";
 const drawerWidth = 220;
 
 function ResponsiveDrawer(props) {
@@ -163,7 +164,10 @@ function ResponsiveDrawer(props) {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={<PrivateRoute children={<Login />} />}
+          />
           <Route path="/profile" element={<Profile />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
