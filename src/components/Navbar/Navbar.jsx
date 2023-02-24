@@ -24,6 +24,7 @@ import Profile from "../../pages/Profile";
 import { boxShadowsObj } from "../../utils/color";
 import Signup from "../../pages/Signup";
 import PrivateRoute from "../../privateRouting/privateRoute";
+import SignupRoute from "../../privateRouting/signupRoute";
 const drawerWidth = 220;
 
 function ResponsiveDrawer(props) {
@@ -41,7 +42,7 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      <Toolbar sx={boxShadowsObj}>
+      <Toolbar sx={{ ...boxShadowsObj, background: "#eb2930" }}>
         <Typography
           className="logo"
           fontSize={"26px"}
@@ -49,6 +50,7 @@ function ResponsiveDrawer(props) {
           variant="h5"
           noWrap
           component="div"
+          color={"white"}
         >
           Mahi Mobile
         </Typography>
@@ -98,6 +100,7 @@ function ResponsiveDrawer(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
           boxShadow: boxShadowsObj.boxShadow,
+          background: "#eb2930",
         }}
       >
         <Toolbar>
@@ -168,8 +171,14 @@ function ResponsiveDrawer(props) {
             path="/login"
             element={<PrivateRoute children={<Login />} />}
           />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/profile"
+            element={<PrivateRoute children={<Profile />} />}
+          />
+          <Route
+            path="/signup"
+            element={<SignupRoute children={<Signup />} />}
+          />
         </Routes>
         {/*ROUTES COMPONENTS*/}
       </Box>
