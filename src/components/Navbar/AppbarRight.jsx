@@ -1,10 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
-import { useState } from "react";
+import { useContext } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useNavigate } from "react-router";
+import LoginContext from "../../context/LoginContext";
 const AppbarRight = () => {
-  const [login] = useState(false);
+  const { login } = useContext(LoginContext);
   const navigate = useNavigate();
   const handleClick = (path) => {
     navigate(path);
@@ -23,6 +24,7 @@ const AppbarRight = () => {
         textTransform={"capitalize"}
         noWrap
         component="div"
+        color={"white"}
       >
         {window.location.pathname === "/"
           ? "Home"
@@ -31,13 +33,13 @@ const AppbarRight = () => {
       {login ? (
         <AccountCircleIcon
           fontSize="large"
-          sx={{ cursor: "pointer" }}
+          sx={{ cursor: "pointer", color: "white" }}
           onClick={() => handleClick("/profile")}
         />
       ) : (
         <LoginIcon
           fontSize="large"
-          sx={{ cursor: "pointer" }}
+          sx={{ cursor: "pointer", color: "white" }}
           onClick={() => handleClick("/login")}
         />
       )}
