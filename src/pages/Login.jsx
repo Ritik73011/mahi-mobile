@@ -2,7 +2,17 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { boxShadowsObj } from "../utils/color";
 import GoogleIcon from "@mui/icons-material/Google";
 import { useNavigate } from "react-router";
+import { useState } from "react";
 const Login = () => {
+  const [data, setData] = useState({});
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setData({ ...data, [name]: value });
+  };
+  const loginFn = () => {
+    console.log(data);
+  };
   const Navigate = useNavigate();
   const registerClick = () => {
     Navigate("/signup");
@@ -25,6 +35,8 @@ const Login = () => {
           label="Email"
           type="email"
           variant="standard"
+          name="email"
+          onChange={handleChange}
         />
         <TextField
           required
@@ -34,6 +46,8 @@ const Login = () => {
           type="password"
           autoComplete="current-password"
           variant="standard"
+          name="password"
+          onChange={handleChange}
         />
         <Button
           sx={{
@@ -43,6 +57,7 @@ const Login = () => {
             marginTop: "24px",
             ":hover": { background: "#d52c2e" },
           }}
+          onClick={loginFn}
         >
           LOGIN
         </Button>
