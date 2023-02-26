@@ -3,6 +3,9 @@ import { boxShadowsObj } from "../utils/color";
 import GoogleIcon from "@mui/icons-material/Google";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../private";
+
 const Login = () => {
   const [data, setData] = useState({});
   const handleChange = (e) => {
@@ -10,9 +13,22 @@ const Login = () => {
     const value = e.target.value;
     setData({ ...data, [name]: value });
   };
+
   const loginFn = () => {
-    console.log(data);
+    signInWithEmailAndPassword(auth, data.email, data.password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        alert(user);
+        // ...
+      })
+      .catch((error) => {
+        //const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
   };
+
   const Navigate = useNavigate();
   const registerClick = () => {
     Navigate("/signup");
