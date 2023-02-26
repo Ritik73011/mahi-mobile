@@ -16,7 +16,9 @@ const Profile = () => {
   };
   return (
     <div>
-      <button onClick={logout}>LOGOUT</button>
+      <button onClick={logout} style={{ cursor: "pointer" }}>
+        LOGOUT
+      </button>
     </div>
   );
 };
