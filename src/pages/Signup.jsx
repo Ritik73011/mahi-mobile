@@ -1,6 +1,9 @@
 import { Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { boxShadowsObj } from "../utils/color";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { ref, set, getDatabase } from "firebase/database";
+import { auth } from "../private";
 const Signup = () => {
   const [data, setData] = useState({});
   const handleChange = (e) => {
@@ -8,8 +11,36 @@ const Signup = () => {
     const value = e.target.value;
     setData({ ...data, [name]: value });
   };
+
+  function insertUserData(userId, name, email, phoneNum) {
+    const db = getDatabase();
+    set(ref(db, "users/" + userId), {
+      name: name,
+      email: email,
+      phone: phoneNum,
+    });
+  }
+
+  const createUser = () => {
+    createUserWithEmailAndPassword(auth, data.email, data.password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        const uid = user.uid;
+        insertUserData(uid, data.name, data.email, data.number);
+        alert(uid);
+        // ...
+      })
+      .catch((error) => {
+        //const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        alert(errorMessage);
+      });
+  };
+
   const signupFn = () => {
-    console.log(data);
+    createUser();
   };
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
