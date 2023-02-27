@@ -17,7 +17,7 @@ const Home = () => {
         Lorem donec massa sapien faucibus et molestie ac.
       </Typography>
       <Typography paragraph>
-        Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
+        Consequat mauris nunc congue nisi small changes suscipit. Fringilla est
         ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum
         integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi
         lacus sed viverra tellus. Purus sit amet volutpat consequat mauris.
