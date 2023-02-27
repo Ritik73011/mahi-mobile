@@ -5,9 +5,15 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../private";
+import ForgetPass from "../components/Popups/ForgetPass";
 
 const Login = () => {
   const [data, setData] = useState({});
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -33,6 +39,7 @@ const Login = () => {
   const registerClick = () => {
     Navigate("/signup");
   };
+
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box
@@ -77,7 +84,21 @@ const Login = () => {
         >
           LOGIN
         </Button>
-        <Box sx={{ marginTop: "24px" }}>
+        <Typography
+          sx={{
+            textAlign: "right",
+            fontSize: "14px",
+            marginTop: "4px",
+            color: "#e34133",
+            cursor: "pointer",
+          }}
+          onClick={handleOpen}
+        >
+          forget password ?
+        </Typography>
+        <ForgetPass open={open} handleClose={handleClose} />
+
+        <Box sx={{ marginTop: "16px" }}>
           <Typography textAlign={"center"} fontSize="12px">
             OR SIGNUP USING
           </Typography>
